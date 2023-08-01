@@ -24,14 +24,14 @@ public class CustomerService
     public List<CustomerEntity> getAll(){
         return customerRepository.findAll();
     }
-    public CustomerEntity update(CustomerEntity customerEntity){
-        CustomerEntity customer = customerRepository.findById(customerEntity.getId()).orElseThrow();
-        customer.setFirstName(customerEntity.getFirstName());
-        customer.setLastName(customerEntity.getLastName());
-        customer.setPassword(customerEntity.getPassword());
-        customer.setPhoneNumber(customerEntity.getPhoneNumber());
-        customer.setUserName(customer.getUserName());
-        customer.setShipmentEntities(customerEntity.getShipmentEntities());
-        return customerRepository.save(customer);
+    public CustomerEntity update(CustomerEntity customerUpdate){
+        CustomerEntity customerExist = customerRepository.findById(customerUpdate.getId()).orElseThrow();
+        customerExist.setFirstName(customerUpdate.getFirstName());
+        customerExist.setLastName(customerUpdate.getLastName());
+        customerExist.setPassword(customerUpdate.getPassword());
+        customerExist.setPhoneNumber(customerUpdate.getPhoneNumber());
+        customerExist.setUserName(customerExist.getUserName());
+        customerExist.setShipmentEntities(customerUpdate.getShipmentEntities());
+        return customerRepository.save(customerExist);
     }
 }
