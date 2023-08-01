@@ -25,7 +25,6 @@ public class CustomerEntity
     private String phoneNumber;
     @Column(name = "User_Name")
     private String userName;
-    private String test;
     @Column(name = "Password")
     private String password;
     @OneToMany(mappedBy = "customerEntity" ,cascade = CascadeType.ALL)
